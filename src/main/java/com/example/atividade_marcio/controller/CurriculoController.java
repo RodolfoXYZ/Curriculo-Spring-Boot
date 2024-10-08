@@ -19,7 +19,7 @@ public class CurriculoController {
     CurriculoService service;
 
 
-    @PostMapping()
+    @PostMapping("/criar")
     public int insert(@RequestBody Curriculo entity) {
         try{
             service.insertACurriculum(entity);
