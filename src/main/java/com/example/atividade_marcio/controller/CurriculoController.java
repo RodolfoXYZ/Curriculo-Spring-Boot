@@ -11,15 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-@RequestMapping("/curriculo")
 @RestController
 public class CurriculoController {
     @Autowired
     CurriculoService service;
 
 
-    @PostMapping("/criar")
+    @PostMapping("/create")
     public int insert(@RequestBody Curriculo entity) {
         try{
             service.insertACurriculum(entity);
@@ -29,14 +27,14 @@ public class CurriculoController {
             return 0;
         }
     }
-    @GetMapping()
+    @GetMapping("/getAll")
     public List<Curriculo> select() {
         
             return service.getAll();
         
     }
     
-    @DeleteMapping()
+    @DeleteMapping("/delete")
     public boolean delete(@RequestParam int id) {
         try{
             service.deleteCurriculum(id);
